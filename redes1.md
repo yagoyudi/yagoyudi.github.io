@@ -946,16 +946,6 @@ Controle de acesso: DFWMAC (Distributed Foundation Wireless MAC).
 
 WPA2: usa AES.
 
-### VANETs
-
-Redes para veículos.
-
-### DTN
-
-Redes tolerantes a atrasos e desconexões.
-
-Exemplo: redes interplanetárias.
-
 ## Bluetooth
 
 802.15
