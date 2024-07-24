@@ -181,14 +181,17 @@ e 4Ghz.
 Contrário: demodulação.
 
 Utilizada quando o canal de comunicação é analógico.
+
 Exemplo: Ondas de rádio para transmissão no ar.
 
 ### Modulação em amplitude (AM/ASK)
 
 Sinal possui **duas amplitudes**, uma para o bit 0 e outra para o bit 1.
 
+```
 0: baixa amplitude.
 1: alta amplitude.
+```
 
 A **frequência permanece constante**, muda somente a amplitude.
 
@@ -203,8 +206,10 @@ O recepetor precisa ver aonde está a crista da onda para ver se o bit é 0 ou 1
 
 Sinal possui **duas frequências**, uma para o bit 0 e outra para o bit 1.
 
+```
 0: baixa frequência.
 1: alta frequência.
+```
 
 A **amplitude permanece constante**, muda somente a frequência.
 
@@ -219,8 +224,10 @@ Receptor precisa "contar" oscilações da onda para ver se o bit é 0 ou 1.
 
 Sinal possui **duas fases**, uma para o bit 0 e outra para o bit 1.
 
+```
 0: começa indo para cima.
 1: começa indo para baixo.
+```
 
 **Amplitude e frequência permanecem constantes**.
 
@@ -255,6 +262,7 @@ Codifica uma onda digital utilizada dentro do computador em uma onda digital
 transmitida fora do computador.
 
 Utilizada quando o meio de transmissão é digital.
+
 Exemplo: Rede Ethernet.
 
 Deve garantir a transmissão de dados e o sincronismo entre origem e destino.
@@ -267,9 +275,12 @@ Polaridade:
 ### Return-to-zero (RZ)
 
 Bipolar.
-* 1: pulso para cima.
-* 0: pulso para baixo.
-* sempre volta ao repouso antes do fim do intervalo.
+
+```
+1: pulso para cima.
+0: pulso para baixo.
+sempre volta ao repouso antes do fim do intervalo.
+```
 
 ### Taxa de transmissão x Taxa de sinalização
 
@@ -280,18 +291,22 @@ Quem define a quantidade de dados que pode ser enviada é a taxa de sinalizaçã
 Fazer a onda oscilar mais vezes do que o suportado pelo fio pode fazer o fio
 esquentar e romper.
 
-RZ: precisa de duas oscilações/bit.
+O RZ precisa de duas oscilações/bit.
 
 ### Non-return-to-zero (NRZ)
 
-Unipolar:
-* 1: pulso para cima.
-* 0: pulso para baixo.
+Unipolar.
 
-Pior caso NRZ: 01010101...010101.
+```
+1: pulso para cima.
+0: pulso para baixo.
+```
 
-Problema do NRZ:
-Quando não tem oscilações. Dessa forma, não tem como sincronizar.
+Pior caso NRZ: `01010101...010101`.
+
+Problema do NRZ: 
+* Quando não tem oscilações, não tem como sincronizar.
+
 Uma vez perdido o sincronismo, deve-se reiniciar a transmissão.
 
 O NRZ é ideal para:
@@ -300,24 +315,30 @@ O NRZ é ideal para:
 
 ### NRZ Invert on ones (NRZ-I)
 
+```
 1: inverte a linha.
 0: fica onde está.
+```
 
-Pior caso do NRZ-I: sequência de 1's.
+Pior caso do NRZ-I: `11111111111111111111....`.
 
 Problema do NRZ-I:
-* sequência de 0's (perde o sincronismo).
+* Sequência de 0's (perde o sincronismo).
 
 Solução:
-* a cada 4 bits incluir um bit 1 na transmissão.
-* receptor deve retirar o bit 1 adicional.
-* para transmitir 8 bits de dados, deve-se transmitir 10 bits na linha.
+
+A cada 4 bits incluir um bit 1 na transmissão. O receptor deve retirar o bit 1
+adicional. Logo, para transmitir 8 bits de dados, deve-se transmitir 10 bits na
+linha.
 
 ### Manchester
 
-Unipolar:
-* 1: transmição para cima no meio do intervalo.
-* 0: para baixo no meio do intervalo.
+Unipolar.
+
+```
+1: transmição para cima no meio do intervalo.
+0: para baixo no meio do intervalo.
+```
 
 Pior caso: sequência de 1s ou de 0s (precisa de duas transições para cada bit).
 
@@ -330,10 +351,13 @@ Uso: Ethernet.
 
 ### Manchester diferencial
 
-Unipolar:
-* sempre tem transição no meio do intervalo.
-* 1: ausência de transição no início do intervalo.
-* 0: presença de transição no início do intervalo.
+Unipolar.
+
+```
+sempre tem transição no meio do intervalo.
+1: ausência de transição no início do intervalo.
+0: presença de transição no início do intervalo.
+```
 
 Pior caso: sequência de 0s (precisa de 2 oscilações/bit).
 
@@ -344,9 +368,12 @@ Vantagens:
 
 ### Alternate Mark Invertion (AMI)
 
-Bipolar:
-* 1: alterna um pulso para cima com um pulso para baixo.
-* 0: fica no repouso.
+Bipolar.
+
+```
+1: alterna um pulso para cima com um pulso para baixo.
+0: fica no repouso.
+```
 
 Pior caso: sequência de 1s (precisa de 2 oscilações/bit).
 
@@ -363,7 +390,9 @@ Uso: telefone fixo.
 
 Comunicação em sentido único.
 
-A -> B.
+```
+A -> B
+```
 
 Exemplo:
 * mouse do computador.
@@ -373,8 +402,10 @@ Exemplo:
 
 Comunicação em ambas as direções, porém nunca ao mesmo tempo.
 
-A -> B.
-A <- B.
+```
+A -> B
+A <- B
+```
 
 Exemplo:
 * Walk-talk
@@ -384,7 +415,9 @@ Exemplo:
 Comunicação em ambas as direções.
 Pode ser simultânea.
 
+```
 A <-> B.
+```
 
 O objetivo é criar um canal duplex.
 Isso pode ser feito com dois simplex.
@@ -457,9 +490,11 @@ Deve ter um tempo de guarda entre cada slot.
 Cada máquina transmite por um tempo utilizando todo o canal.
 
 Quadro := sequência de slots sem repetição.
+
 Os quadros são repetidos indefinidamente no canal.
 
 O que ocorre se um slot ficar vazio?
+
 R: O slot pertence a máquina, se ela não quer transmitir, ele fica vazio.
 
 #### TDM x TDMA
@@ -536,9 +571,7 @@ Code Division Multiple Access:
 
 ### OFMD (Multiplexação por Divisão Ortogonal de Frequência)
 
-Parecida com FDM.
-Mas os sub-canais são sobrepostos.
-Resultando em um número maior de sub-canais maiores.
+Parecida com FDM, mas os sub-canais são sobrepostos. Isso resulta em um número maior de sub-canais maiores.
 
 O pico de cada frequência é único e o resto pode se sobrepor.
 
@@ -547,8 +580,7 @@ Utilizado em todas as redes sem fio.
 
 ### WDM (Multiplexação por Divisão de Comprimento de Onda)
 
-Similar ao FDM.
-Mas ao invés de utilizar a frequência como parâmetro para a divisão, utiliza o
+Similar ao FDM, mas - ao invés de utilizar a frequência como parâmetro para a divisão - utiliza o
 comprimento de onda.
 
 Utilizado em fibra ótica.
@@ -565,6 +597,7 @@ Multiplexação:
 
 É possível unir as duas técnicas?
 Ou seja, multiplas máquinas dividindo um canal com transmissão bidirecional.
+
 R: Sim.
 
 ### TDD + TDM
@@ -594,10 +627,7 @@ Dentro de cada frequência, uma frequência para cada máquina.
 
 ### Existem mais possibilidades
 
-CDM + TDD.
-CDM + FDD.
-OFDM + TDD.
-OFDM + FDD.
+CDM + TDD, CDM + FDD, OFDM + TDD, OFDM + FDD, etc.
 
 ## Enlace
 
@@ -945,6 +975,16 @@ envolve uma troca de dois ou quatro quadros (dados, ACK, CTS/RTS opcionais).
 Controle de acesso: DFWMAC (Distributed Foundation Wireless MAC).
 
 WPA2: usa AES.
+
+### VANETs
+
+Redes para veículos.
+
+### DTN
+
+Redes tolerantes a atrasos e desconexões.
+
+Exemplo: redes interplanetárias.
 
 ## Bluetooth
 
