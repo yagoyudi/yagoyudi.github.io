@@ -397,8 +397,9 @@ A -> B
 ```
 
 Exemplo:
-* mouse do computador.
-* rádio.
+* Mouse.
+* Teclado.
+* Rádio.
 
 ### Half-duplex (ou Semi-duplex)
 
@@ -410,7 +411,8 @@ A <- B
 ```
 
 Exemplo:
-* Walk-talk
+* Walk-talk.
+* Email.
 
 ### Duplex (ou Full-duplex)
 
@@ -419,6 +421,10 @@ Comunicação em ambas as direções. Pode ser simultânea.
 ```
 A <-> B.
 ```
+
+Exemplo:
+* Telefone.
+* Internet.
 
 O objetivo é criar um canal duplex. Isso pode ser feito com dois simplex, mas,
 se isso não for possível, usamos duplexação.
