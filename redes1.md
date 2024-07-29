@@ -291,7 +291,7 @@ Quem define a quantidade de dados que pode ser enviada é a taxa de sinalizaçã
 Fazer a onda oscilar mais vezes do que o suportado pelo fio pode fazer o fio
 esquentar e romper.
 
-O RZ precisa de duas oscilações/bit.
+**O RZ precisa de duas oscilações/bit.**
 
 ### Non-return-to-zero (NRZ)
 
@@ -299,7 +299,7 @@ Unipolar.
 
 ```
 1: pulso para cima.
-0: pulso para baixo.
+0: fica no repouso.
 ```
 
 Pior caso NRZ: `01010101...010101`.
@@ -314,6 +314,8 @@ O NRZ é ideal para:
 * Transmissões nas quais o sincronismo não é problema.
 
 ### NRZ Invert on ones (NRZ-I)
+
+Unipolar.
 
 ```
 1: inverte a linha.
@@ -412,18 +414,14 @@ Exemplo:
 
 ### Duplex (ou Full-duplex)
 
-Comunicação em ambas as direções.
-Pode ser simultânea.
+Comunicação em ambas as direções. Pode ser simultânea.
 
 ```
 A <-> B.
 ```
 
-O objetivo é criar um canal duplex.
-Isso pode ser feito com dois simplex.
-Mas, se isso não for possível, usamos duplexação.
-
-### Duplexação
+O objetivo é criar um canal duplex. Isso pode ser feito com dois simplex, mas,
+se isso não for possível, usamos duplexação.
 
 #### TDD (Time Division Duplexing)
 
@@ -432,10 +430,9 @@ Fatia o tempo do canal em slots.
 Em um slot transmite e no outro recebe.
 
 É necessário ter um tempo de guarda entre os slots, porque a inversão não é
-instantânea.
-Isso evita colisões.
+instantânea. Isso evita colisões.
 
-Isso ocorre tão rápido que considera-se um duplex.
+A transissão ocorre tão rápido que considera-se um duplex.
 
     frequência
     ^
@@ -447,8 +444,8 @@ Isso ocorre tão rápido que considera-se um duplex.
 
 #### FDD (Frequency Division Duplexing)
 
-Divide a frequência disponível em duas.
-Uma faixa de frequência transmite e outra recebe.
+Divide a frequência disponível em duas. Uma faixa de frequência transmite e
+outra recebe.
 
     frequência
     ^
@@ -466,20 +463,20 @@ Uma faixa de frequência transmite e outra recebe.
 #### TDD vs FDD
 
 TDD:
-* máquina transmite utilizando toda a banda pela "metade" do tempo.
-* precisa de um intervalo de tempo (intervalo de guarda) entre transmissão e
+* Máquina transmite utilizando toda a banda pela "metade" do tempo.
+* Precisa de um intervalo de tempo (intervalo de guarda) entre transmissão e
   recepção para inverter o canal.
-* redes sem fio (wifi).
+* Redes sem fio (wifi).
 
 FDD:
 * máquina transmite utilizando "metade" da banda todo o tempo.
-* precisa de duas antenas (uma para receber e uma para transmitir) ou de uma
+* Precisa de duas antenas (uma para receber e uma para transmitir) ou de uma
   antena capaz de realizar as duas tarefas simunltâneas.
-* telefonia celular.
+* Telefonia celular.
 
 ## Multiplexação
 
-Dividir um canal entre múltiplos usuários (computadores).
+Simplex. Múltiplos clientes (computadores) conversam com o servidor.
 
 ### TDM
 
@@ -542,13 +539,11 @@ Frequency Division Multiple Access:
 
 ### CDM (Multiplexação por Divisão de Código)
 
-Baseada nas funções de Walsh.
-Cada máquina recebe uma função de Walsh para utilizar.
-A função define o formato da onde que a máquina deve transmitir.
+Baseada nas funções de Walsh. Cada máquina recebe uma função de Walsh para
+utilizar. A função define o formato da onde que a máquina deve transmitir.
 
-Todas as máquinas transmitem utilizando o canal todo, todo o tempo.
-Elas se somam, mas é possível que o receptor separe as ondas e identifique cada
-sinal.
+Todas as máquinas transmitem utilizando o canal todo, todo o tempo. Elas se
+somam, mas é possível que o receptor separe as ondas e identifique cada sinal.
 O receptor faz meio que um casamento de padrões.
 
 Permite 32 transmissões simultâneas.
@@ -602,9 +597,8 @@ R: Sim.
 
 ### TDD + TDM
 
-Dois grupos: upload e download.
-Um slot para cada máquina fazer upload.
-Um slot para cada máquina fazer download.
+Dois grupos: upload e download. Um slot para cada máquina fazer upload. Um slot
+para cada máquina fazer download.
 
 Quadro := parte de upload + download.
 
@@ -615,15 +609,15 @@ slots de tempo para upload e download.
 
 ### FDD + TDM
 
-Duas frequências: uma para upload e outra para download.
-Um slot de tempo para cada máquina.
+Duas frequências: uma para upload e outra para download. Um slot de tempo para
+cada máquina.
 
 Mais utilizado.
 
 ### FDD + FDM
 
-Dois frequências: upload e download.
-Dentro de cada frequência, uma frequência para cada máquina.
+Dois frequências: upload e download. Dentro de cada frequência, uma frequência
+para cada máquina.
 
 ### Existem mais possibilidades
 
@@ -683,10 +677,12 @@ Tentativa de resolver o problema de colisões.
 
 Máquinas devem ouvir antes de transmitir.
 
+```
 Se tiver uma transimissão em andamento:
 	Máquina deve esperar a transmissão acabar.
 Senão: # canal está livre
 	Pode transmitir.
+```
 
 `~[30, 40]% de taxa de entrega.`
 
@@ -702,29 +698,27 @@ Basicamente é um Aloha discreto portado para dentro do fio.
 Caso o canal esteja ocupada estabelece uma espera aleatória para tentar
 novamente.
 
-Intervalo de espera é um valor inteiro entre (0, 2^n-1], onde n é o número de
-tentativas de transmitir esta mensagem.
-Depois de n = 11, n fica constante.
-n = 16 significa pânico na rede, desiste da transmissão.
+Intervalo de espera é um valor inteiro entre `(0, 2^n-1]`, onde n é o número de
+tentativas de transmitir esta mensagem.  Depois de `n = 11`, n fica constante.
+`n = 16` significa pânico na rede, desiste da transmissão.
 
 #### CSMA/CD
 
 Baseado no CSMA não-persistente.
+
 **Com Collision Detection.**
 
-Enquanto transmite fica ouvindo o canal.
-Se detectar colisão, para de transmitir.
-A colisão sempre acontece no início da transmissão.
-Depois que o cabo está "cheio" não pode mais ocorrer colisão, pois máquinas
-devem ouvir antes de transmitir.
+Enquanto transmite fica ouvindo o canal. Se detectar colisão, para de
+transmitir. A colisão sempre acontece no início da transmissão.  Depois que o
+cabo está "cheio" não pode mais ocorrer colisão, pois máquinas devem ouvir
+antes de transmitir.
 
 Quando os bits colidem, eles fazem um OR e tudo vira uma sequência de 1s.
 Uma máquina coloca 0 no fio e ouve 1. Logo, ela percebe que ouve uma colisão.
 
-A colisão só pode ocorrer nos primeiros 64 bytes da transmissão.
-Isso limita o tamanho da rede.
-O sinal deve atingir toda a rede dentro do tempo necessário para transmitir 64
-bytes.
+A colisão só pode ocorrer nos primeiros 64 bytes da transmissão. Isso limita o
+tamanho da rede. O sinal deve atingir toda a rede dentro do tempo necessário
+para transmitir 64 bytes.
 
 Vantagens:
 * Se der colisão, transmite somente 64 bytes e para.
@@ -739,12 +733,12 @@ Utilizado na Ethernet.
 Novas redes sem fio não conseguiram usar CSMA/CD, porque não da pra transmitir
 e ouvir ao mesmo tempo.
 
-Volta ao CSMA.
-Problema da colisão volta.
+Volta ao CSMA, problema da colisão volta.
 
 Problema novo: problema do terminal oculto.
 
 CSMA com Collision Avoidance.
+
 Duas novas mensagens:
 * RTS (Request-To-Send)
 * CTS (Clear-To-Send)
@@ -755,20 +749,18 @@ Ordem:
 3. Dados.
 4. ACK.
 
-Pode ocorrer colisão?
-R: Sim, mas em mensagens RTS/CTS.
+Pode ocorrer colisão? Sim, mas em mensagens RTS/CTS.
 
-Vantagem: mensagens RTS e CTS são mensagens pequenas, perto de 64 bytes.
+Vantagem:
+* Mensagens RTS e CTS são mensagens pequenas, perto de 64 bytes.
 
-Desvantagem: precisa enviar 1 mensagem RTS e 1 CTS pelo menos para cada
-mensagem de dados.
+Desvantagem:
+* Precisa enviar 1 mensagem RTS e 1 CTS pelo menos para cada mensagem de dados.
 
 #### Passagem de bastão
 
-Como uma corrida de revezamento.
-O bastão vai passando pela rede.
-Quem está com o bastão pode transmitir.
-Se tudo funcionar corretamente, não tem colisão.
+Como uma corrida de revezamento. O bastão vai passando pela rede. Quem está com
+o bastão pode transmitir. Se tudo funcionar corretamente, não tem colisão.
 
 Duas formas de fazer a passagem de bastão:
 1. Temporização do bastão.
@@ -779,19 +771,20 @@ Duas formas de fazer a passagem de bastão:
 #### Resumo
 
 Rede com fio: CSMA/CD.
+
 Rede sem fio: CSMA/CA.
+
 Anel: passagem de bastão.
 
-Porque não usar CSMA/CA em redes com fio?
-R: overhead do RTS/CTS.
+Porque não usar CSMA/CA em redes com fio? R: overhead do RTS/CTS.
 
 ### LLC
 
 O LLC (Logical Link Control) possui 4 tarefas:
-* Enquadramento
-* Sequencialização
-* Detecção de erros
-* Controle de fluxo
+1. Enquadramento
+2. Sequencialização
+3. Detecção de erros
+4. Controle de fluxo
 
 #### Enquadramento
 
@@ -801,9 +794,14 @@ termina as mensagens.
 Duas formas de fazer isso:
 1. Delimitador de início + delimitador de fim.
 
-Problema: e se o delimitador de fim aparecer dentro da mensagem?
-Solução: se encontrar um 0 seguido por 5 1s, adiciona mais um 0. Quando
+```
+Problema:
+Se o delimitador de fim aparecer dentro da mensagem.
+
+Solução:
+Se encontrar um 0 seguido por 5 1s, adiciona mais um 0. Quando
 o receptor receber, ele remove esse 0.
+```
 
 2. Delimitador de início + campo de tamanho.
 
@@ -824,14 +822,14 @@ Campo tamanho:
 
 Deve indicar a sequência correta que as mensagens saíram da origem.
 
-Adiciona-se um campo na mensagem com um número sequencial de 0 a XX.
-XX é o maior número que pode ser representado com a quantidade de bits do campo
+Adiciona-se um campo na mensagem com um número sequencial de 0 a XX. XX é o
+maior número que pode ser representado com a quantidade de bits do campo
 tamanho.
 
 Cuidado:
-A sequência deve ser sem sinal (unsigned).
-Quando estourar o contador, ele deve voltar a 0.
-Por exemplo, se for de 8 bits, vai de 0 a 255.
+
+A sequência deve ser sem sinal (unsigned). Quando estourar o contador, ele
+deve voltar a 0. Por exemplo, se for de 8 bits, vai de 0 a 255.
 
 #### Controle de Fluxo
 
@@ -841,8 +839,10 @@ Duas formas de fazer:
 
 ##### Para e espera.
 
-Utilizado em redes semi-duplx.
+Utilizado em redes semi-duplex.
+
 Envia uma mensage, para e fica esperando uma resposta.
+
 Envia uma mensagem de cada vez.
 
 Os timeouts são sempre no lado do cliente.
@@ -851,10 +851,11 @@ Os timeouts são sempre no lado do cliente.
 
 Utilizado em redes duplex.
 
-Define uma "janela" com X mensagens.
-Pode enviar até X mensagens sem receber nenhuma confirmação.
+Define uma "janela" com X mensagens. Pode enviar até X mensagens sem receber
+nenhuma confirmação.
 
 Aceitação coletiva:
+
 Qualquer resposta (ACK ou NACK) da mensagem 4 (por exemplo) aceita todas as
 mensagens transmitidas antes da 4.
 
@@ -864,7 +865,7 @@ Existem duas formas de implementar as janelas deslizantes:
 
 1.  Volta-N.
 
-    Quando há um NACK, retransmite toda a janela.
+    Quando há um NACK, retransmite toda a janela a partir da que deu erro.
 
     Usado em redes nas quais você tem muito erro.
 
