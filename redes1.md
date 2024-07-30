@@ -798,7 +798,7 @@ Problema novo: problema do terminal oculto.
 
 ![Problema](terminal-oculto.png)
 
-CSMA com Collision Avoidance.
+Solução: CSMA com Collision Avoidance.
 
 Duas novas mensagens:
 * RTS (Request-To-Send)
@@ -851,26 +851,20 @@ Em transmissões assíncronas, a origem deve sinalizar aonde começa e aonde
 termina as mensagens.
 
 Duas formas de fazer isso:
-1. Delimitador de início + delimitador de fim.
+1.  Delimitador de início + delimitador de fim.
 
-```
-Problema:
-Se o delimitador de fim aparecer dentro da mensagem.
+    Problema: se o delimitador de fim aparecer dentro da mensagem.
 
-Solução:
-Se encontrar um 0 seguido por 5 1s, adiciona mais um 0. Quando
-o receptor receber, ele remove esse 0.
-```
+    Solução: se encontrar um 0 seguido por 5 1s, adiciona mais um 0. Quando o
+    receptor receber, ele remove esse 0.
 
-2. Delimitador de início + campo de tamanho.
+2.  Delimitador de início + campo de tamanho.
 
 ##### Comparativo
 
 Delimitador de fim:
 * Mensagens sem limite de tamanho.
 * Deve procurar o delimitador de fim no meio da mensagem para alterá-lo.
-
-vs
 
 Campo tamanho:
 * Mensagens com tamanho máximo (maior número que pode ser representado no campo
@@ -885,10 +879,8 @@ Adiciona-se um campo na mensagem com um número sequencial de 0 a XX. XX é o
 maior número que pode ser representado com a quantidade de bits do campo
 tamanho.
 
-Cuidado:
-
-A sequência deve ser sem sinal (unsigned). Quando estourar o contador, ele
-deve voltar a 0. Por exemplo, se for de 8 bits, vai de 0 a 255.
+Cuidado, a sequência deve ser sem sinal (unsigned). Quando estourar o contador,
+ele deve voltar a 0. Por exemplo, se for de 8 bits, vai de 0 a 255.
 
 #### Controle de Fluxo
 
