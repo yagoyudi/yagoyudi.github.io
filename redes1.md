@@ -30,7 +30,7 @@ Sumário:
     1.  [CDM](#cdm-multiplexação-por-divisão-de-código)
     1.  [OFMD](#ofmd-multiplexação-por-divisão-ortogonal-de-frequência)
     1.  [WDM](#wdm-multiplexação-por-divisão-de-comprimento-de-onda)
-1.  [Duplexação + Multiplexação](#duplexação-+-multiplexação)
+1.  [Duplexação + Multiplexação](#duplexação--multiplexação)
 1.  [MAC](#mac)
     1.  [Aloha](#aloha)
     1.  [Aloha discreto](#aloha-discreto-slotted-aloha)
