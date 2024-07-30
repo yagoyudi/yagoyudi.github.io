@@ -30,7 +30,7 @@ Sumário:
     1.  [CDM](#cdm-multiplexação-por-divisão-de-código)
     1.  [OFMD](#ofmd-multiplexação-por-divisão-ortogonal-de-frequência)
     1.  [WDM](#wdm-multiplexação-por-divisão-de-comprimento-de-onda)
-1.  [Duplexação + Multiplexação](#duplexação-x-multiplexação)
+1.  [Duplexação + Multiplexação](#duplexação-+-multiplexação)
 1.  [MAC](#mac)
     1.  [Aloha](#aloha)
     1.  [Aloha discreto](#aloha-discreto-slotted-aloha)
@@ -449,11 +449,9 @@ Uso: telefone fixo.
 
 ### Simplex
 
-Comunicação em sentido único.
+![Simplex](simplex.png)
 
-```
-A -> B
-```
+Comunicação em sentido único.
 
 Exemplo:
 * Mouse.
@@ -462,12 +460,9 @@ Exemplo:
 
 ### Half-duplex (ou Semi-duplex)
 
-Comunicação em ambas as direções, porém nunca ao mesmo tempo.
+![Semi-duplex](semi-duplex.png)
 
-```
-A -> B
-A <- B
-```
+Comunicação em ambas as direções, porém nunca ao mesmo tempo.
 
 Exemplo:
 * Walk-talk.
@@ -475,20 +470,20 @@ Exemplo:
 
 ### Duplex (ou Full-duplex)
 
-Comunicação em ambas as direções. Pode ser simultânea.
+![Duplex](duplex.png)
 
-```
-A <-> B.
-```
+Comunicação em ambas as direções. Pode ser simultânea.
 
 Exemplo:
 * Telefone.
 * Internet.
 
-O objetivo é criar um canal duplex. Isso pode ser feito com dois simplex, mas,
-se isso não for possível, usamos duplexação.
+O objetivo é criar um canal duplex. Isso pode ser feito com dois simplex, mas -
+se isso não for possível - usamos duplexação.
 
 #### TDD (Time Division Duplexing)
+
+![TDD](tdd.png)
 
 Fatia o tempo do canal em slots.
 
@@ -499,31 +494,12 @@ instantânea. Isso evita colisões.
 
 A transissão ocorre tão rápido que considera-se um duplex.
 
-    frequência
-    ^
-    |        |        |        |        |        |
-    |        |        |        |        |        |
-    | A -> B | Guarda | B -> A | Guarda | A -> B | ...
-    |        |        |        |        |        |
-    |----------------- tempo --------------------->
-
 #### FDD (Frequency Division Duplexing)
+
+![FDD](fdd.png)
 
 Divide a frequência disponível em duas. Uma faixa de frequência transmite e
 outra recebe.
-
-    frequência
-    ^
-    |
-    |              A -> B
-    |
-    | ------------------------------------
-    |              Guarda
-    | -------------------------------------
-    |
-    |              B -> A
-    |
-    ---------------------------------------> tempo
 
 #### TDD vs FDD
 
@@ -541,9 +517,13 @@ FDD:
 
 ## Multiplexação
 
-Simplex. Múltiplos clientes (computadores) conversam com o servidor.
+Múltiplos clientes (computadores) conversam com o servidor.
+
+Simplex. 
 
 ### TDM
+
+![TDM](tdm.png)
 
 Fatia o tempo do canal entre os usuários e entrega um slot para cada um.
 
@@ -585,12 +565,14 @@ TDM com reserva:
 
 ### FDM
 
+![FDM](fdm.png)
+
 Fatia o tamanho do canal (a faixa de frequência) em bandas menores (canais
 menores) e entrega um canal pequeno para cada usuário.
 
 Deve ter uma frequência guarda entre cada canal.
 
-Cada máquina transmite todo o tempo utilizanod um canal pequina (velocidade
+Cada máquina transmite todo o tempo utilizando um canal pequeno (velocidade
 reduzida).
 
 #### FDM x FDMA
@@ -631,6 +613,8 @@ Code Division Multiple Access:
 
 ### OFMD (Multiplexação por Divisão Ortogonal de Frequência)
 
+![OFMD](ofdm.png)
+
 Parecida com FDM, mas os sub-canais são sobrepostos. Isso resulta em um número maior de sub-canais maiores.
 
 O pico de cada frequência é único e o resto pode se sobrepor.
@@ -640,27 +624,29 @@ Utilizado em todas as redes sem fio.
 
 ### WDM (Multiplexação por Divisão de Comprimento de Onda)
 
+![WDM](wdm.png)
+
 Similar ao FDM, mas - ao invés de utilizar a frequência como parâmetro para a divisão - utiliza o
 comprimento de onda.
 
 Utilizado em fibra ótica.
 
-## Duplexação x Multiplexação
+## Duplexação + Multiplexação
 
 Duplexação:
-* permite enviar e receber em um canal.
-* somente duas máquinas conectadas.
+* Permite enviar e receber em um canal (Duplex).
+* Somente duas máquinas conectadas.
 
 Multiplexação:
-* permite muitas máquinas compartilharem o canal.
-* somente em sentido.
+* Permite muitas máquinas compartilharem o canal.
+* Simplex.
 
-É possível unir as duas técnicas?
-Ou seja, multiplas máquinas dividindo um canal com transmissão bidirecional.
-
-R: Sim.
+É possível unir as duas técnicas. Ou seja, multiplas máquinas dividindo um
+canal com transmissão bidirecional.
 
 ### TDD + TDM
+
+![TDD + TDM](tdd-tdm.png)
 
 Dois grupos: upload e download. Um slot para cada máquina fazer upload. Um slot
 para cada máquina fazer download.
@@ -669,10 +655,14 @@ Quadro := parte de upload + download.
 
 ### TDD + FDM
 
+![TDD+FDM](tdd-fdm.png)
+
 Dividir a frequência para cada máquina e, dentro de cada frequência, dividir em
 slots de tempo para upload e download.
 
 ### FDD + TDM
+
+![FDD+TDM](fdd-tdm.png)
 
 Duas frequências: uma para upload e outra para download. Um slot de tempo para
 cada máquina.
@@ -680,6 +670,8 @@ cada máquina.
 Mais utilizado.
 
 ### FDD + FDM
+
+![FDD+FDM](fdd-fdm.png)
 
 Dois frequências: upload e download. Dentro de cada frequência, uma frequência
 para cada máquina.
@@ -769,6 +761,8 @@ tentativas de transmitir esta mensagem.  Depois de `n = 11`, n fica constante.
 
 #### CSMA/CD
 
+![CSMA/CD](csma-cd.png)
+
 Baseado no CSMA não-persistente.
 
 **Com Collision Detection.**
@@ -802,35 +796,35 @@ Volta ao CSMA, problema da colisão volta.
 
 Problema novo: problema do terminal oculto.
 
+![Problema](terminal-oculto.png)
+
 CSMA com Collision Avoidance.
 
 Duas novas mensagens:
 * RTS (Request-To-Send)
 * CTS (Clear-To-Send)
 
-Ordem:
-1. RTS.
-2. CTS.
-3. Dados.
-4. ACK.
+![CSMA/CA](csma-ca.png)
 
-Pode ocorrer colisão? Sim, mas em mensagens RTS/CTS.
+Pode ocorrer colisão em mensagens RTS e CTS.
 
-Vantagem:
-* Mensagens RTS e CTS são mensagens pequenas, perto de 64 bytes.
+Vantagem: mensagens RTS e CTS são mensagens pequenas, perto de 64 bytes.
 
-Desvantagem:
-* Precisa enviar 1 mensagem RTS e 1 CTS pelo menos para cada mensagem de dados.
+Desvantagem: precisa enviar 1 mensagem RTS e 1 CTS pelo menos para cada mensagem de dados.
 
 #### Passagem de bastão
+
+![Passagem de bastão](passagem-de-bastao.png)
 
 Como uma corrida de revezamento. O bastão vai passando pela rede. Quem está com
 o bastão pode transmitir. Se tudo funcionar corretamente, não tem colisão.
 
 Duas formas de fazer a passagem de bastão:
 1. Temporização do bastão.
+    * Acabou meu tempo? Então passa o bastão.
 	* Problema: perde tempo quando não está transmitindo.
 2. Antecipação do bastão.
+    * Não vou enviar nada, então passa o bastão.
 	* Problema: quando ninguém quer transmitir nada.
 
 #### Resumo
@@ -841,7 +835,7 @@ Rede sem fio: CSMA/CA.
 
 Anel: passagem de bastão.
 
-Porque não usar CSMA/CA em redes com fio? R: overhead do RTS/CTS.
+Porque não usar CSMA/CA em redes com fio? Overhead do RTS/CTS.
 
 ### LLC
 
@@ -919,10 +913,8 @@ Utilizado em redes duplex.
 Define uma "janela" com X mensagens. Pode enviar até X mensagens sem receber
 nenhuma confirmação.
 
-Aceitação coletiva:
-
-Qualquer resposta (ACK ou NACK) da mensagem 4 (por exemplo) aceita todas as
-mensagens transmitidas antes da 4.
+Aceitação coletiva: qualquer resposta (ACK ou NACK) da mensagem 4 (por exemplo)
+aceita todas as mensagens transmitidas antes da 4.
 
 As janelas podem mudar de tamanho.
 
@@ -944,7 +936,6 @@ Existem duas formas de implementar as janelas deslizantes:
 #### Detecção de erros
 
 Função: **descobrir** que ocorreu erro durante a transmissão.
-SOMENTE DESCOBRIR.
 
 ##### Paridade horizontal
 
@@ -993,8 +984,7 @@ Mensagem original + polinômio gerador.
 
 O resto é somado na mensagem truncada.
 
-No receptor:
-O resto da divisão tem que ser 0.
+No receptor, o resto da divisão tem que ser 0.
 
 Sobrecarga: n bits adicionais (n é o grau do nosso polinômio).
 
