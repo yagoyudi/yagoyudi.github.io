@@ -896,7 +896,7 @@ Envia uma mensage, para e fica esperando uma resposta.
 
 Envia uma mensagem de cada vez.
 
-Os timeouts são sempre no lado do cliente.
+Os timeouts são sempre em mensagens e não em respostas (ACK/NACK).
 
 ##### Janelas deslizantes.
 
