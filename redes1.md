@@ -184,6 +184,8 @@ Utilizada quando o canal de comunicação é analógico.
 
 Exemplo: Ondas de rádio para transmissão no ar.
 
+![Exemplo todas as modulações](modulacao.png)
+
 ### Modulação em amplitude (AM/ASK)
 
 Sinal possui **duas amplitudes**, uma para o bit 0 e outra para o bit 1.
@@ -237,6 +239,8 @@ PSK := PM + portadora.
 
 ### Modulação em quadratura de amplitude (QAM)
 
+![Exemplo QAM-8](qam-8.png)
+
 QAM-4 := 4 amplitudes diferentes ou 2 amplitudes e 2 fases.
 * transmite 2 bits de uma vez.
 
@@ -274,13 +278,17 @@ Polaridade:
 
 ### Return-to-zero (RZ)
 
-Bipolar.
+![RZ exemplo](rz.png)
 
 ```
 1: pulso para cima.
 0: pulso para baixo.
 sempre volta ao repouso antes do fim do intervalo.
 ```
+
+Bipolar.
+
+2 oscilações/bit.
 
 ### Taxa de transmissão x Taxa de sinalização
 
@@ -291,23 +299,21 @@ Quem define a quantidade de dados que pode ser enviada é a taxa de sinalizaçã
 Fazer a onda oscilar mais vezes do que o suportado pelo fio pode fazer o fio
 esquentar e romper.
 
-**O RZ precisa de duas oscilações/bit.**
-
 ### Non-return-to-zero (NRZ)
 
-Unipolar.
+![NRZ exemplo](nrz.png)
 
 ```
 1: pulso para cima.
 0: fica no repouso.
 ```
 
+Unipolar.
+
 Pior caso NRZ: `01010101...010101`.
 
-Problema do NRZ: 
-* Quando não tem oscilações, não tem como sincronizar.
-
-Uma vez perdido o sincronismo, deve-se reiniciar a transmissão.
+Problema do NRZ: quando não tem oscilações, não tem como sincronizar. Uma vez
+perdido o sincronismo, deve-se reiniciar a transmissão.
 
 O NRZ é ideal para:
 * Transmissões a curta distência.
@@ -315,45 +321,45 @@ O NRZ é ideal para:
 
 ### NRZ Invert on ones (NRZ-I)
 
-Unipolar.
+![NRZ-I exemplo](nrzi.png)
 
 ```
 1: inverte a linha.
 0: fica onde está.
 ```
 
-Pior caso do NRZ-I: `11111111111111111111....`.
+Unipolar.
 
-Problema do NRZ-I:
-* Sequência de 0's (perde o sincronismo).
+Pior caso do NRZ-I: `111...111`, porque tem 2 oscilações/bit.
 
-Solução:
+Problema do NRZ-I: `000...000`, porque perde o sincronismo.
 
-A cada 4 bits incluir um bit 1 na transmissão. O receptor deve retirar o bit 1
-adicional. Logo, para transmitir 8 bits de dados, deve-se transmitir 10 bits na
-linha.
+Solução: a cada 4 bits incluir um bit 1 na transmissão. O receptor deve retirar
+o bit 1 adicional. Logo, para transmitir 8 bits de dados, deve-se transmitir 10
+bits na linha.
 
 ### Manchester
 
-Unipolar.
+![Manchester exemplo](manchester.png)
 
 ```
-1: transmição para cima no meio do intervalo.
+1: para cima no meio do intervalo.
 0: para baixo no meio do intervalo.
 ```
 
-Pior caso: sequência de 1s ou de 0s (precisa de duas transições para cada bit).
+Unipolar.
 
-2 oscilações/bit.
+Pior caso: sequência de 1s ou de 0s, porque precisa de 2 oscilações/bit.
 
 Vantagem: código auto-sincronizável.
+
 Desvantagem: transição no meio do intervalo carrega dados e sincronismo.
 
 Uso: Ethernet.
 
 ### Manchester diferencial
 
-Unipolar.
+![Manchester diferencial exemplo](manchester-diferencial.png)
 
 ```
 sempre tem transição no meio do intervalo.
@@ -361,7 +367,9 @@ sempre tem transição no meio do intervalo.
 0: presença de transição no início do intervalo.
 ```
 
-Pior caso: sequência de 0s (precisa de 2 oscilações/bit).
+Unipolar.
+
+Pior caso: `000...000`, porque precisa de 2 oscilações/bit.
 
 Vantagens:
 * código auto-sincronizável.
@@ -370,19 +378,20 @@ Vantagens:
 
 ### Alternate Mark Invertion (AMI)
 
-Bipolar.
+![Exemplo de AMI](ami.png)
 
 ```
 1: alterna um pulso para cima com um pulso para baixo.
 0: fica no repouso.
 ```
 
-Pior caso: sequência de 1s (precisa de 2 oscilações/bit).
+Bipolar.
 
-Problema: sequência de 0s (sem sincronismo).
+Pior caso: `111...111`, porque precisa de 2 oscilações/bit.
 
-Vantagem:
-* deteção de erro (dois pulso pro mesmo sentido "seguidos" = erro).
+Problema: `000...000`, porque perde o sincronismo.
+
+Vantagem: deteção de erro. Dois pulso pro mesmo sentido "seguidos" identifica um erro.
 
 Uso: telefone fixo.
 
@@ -913,6 +922,8 @@ Sobrecarga: 1 bit para cada byte + 1 byte.
 
 ##### Checksum
 
+![Exemplo de checksum](checksum.png)
+
 1. Soma os dados.
 2. Trunca o resultado para 8 bits.
 3. A checksum é o que falta pra número do item 2 dar 0.
@@ -926,14 +937,9 @@ Sobrecarga: 1 byte.
 
 ##### CRC (Ciclic Redundant Code)
 
+![Exemplo de CRC](crc.png)
+
 Mensagem original + polinômio gerador.
-
-Exemplo:
-$$x³ + 1$$
-
-$$1x³ + 0x² + 0x + 1$$
-
-1 0 0 1 (número que você vai usar para dividir a mensagem truncada).
 
 O resto é somado na mensagem truncada.
 
@@ -941,124 +947,6 @@ No receptor:
 O resto da divisão tem que ser 0.
 
 Sobrecarga: n bits adicionais (n é o grau do nosso polinômio).
-
-## Ethernet
-
-## WiFi
-
-IEEE 802.11.
-
-Tecnologia mais madura para comunicações sem fio.
-
-Padrão para WLAN.
-
-Todas as placas de rede do padrão 802.11 podem ser configuradas em um dos dois
-modos de operação. Nunca nos dois ao mesmo tempo.
-
-Em modalidade **com infraestrutura**, a placa se comunica sempre com um **ponto
-de acesso**.
-
-Em modalidade **sem infraestrutura** (ad hoc), a placa se comunica sempre com
-**outras unidades**.
-
-1.  com infraestrutura.
-    *   Pontos de acesso (access points).
-    *   Todas as comunicações devem passar pelo ponto de acesso.
-    *   Todas as unidades de rede devem estar dentro do raio de alcance do
-        ponto de acesso.
-
-2.  sem infraestrutura (ou ad hoc).
-    *   Chamadas de redes ad hoc.
-    *   Unidades se comunicam diretamente umas com as outras.
-    *   Não existe ponto de acesso ou outro tipo de unidade centralizadora.
-    *   Unidades devem servir de roteadores para as mensagens das outras
-        unidades.
-
-MAC: CSMA/CA
-
-Entrega de dados confiável. O mecanismo de transferência de dados básico
-envolve uma troca de dois ou quatro quadros (dados, ACK, CTS/RTS opcionais).
-
-Controle de acesso: DFWMAC (Distributed Foundation Wireless MAC).
-
-WPA2: usa AES.
-
-### VANETs
-
-Redes para veículos.
-
-### DTN
-
-Redes tolerantes a atrasos e desconexões.
-
-Exemplo: redes interplanetárias.
-
-## Bluetooth
-
-802.15
-
-Tecnologia para conexões sem fio de curta distância.
-
-As transmissões por frequências de rádio.
-
-Raio de 10m (novas especificações permitem raio de alcance de 100m).
-
-*   Robustez
-
-    *   Deve ser capaz de operar em locais com muita interferência.
-
-    *   Utiliza a frequência de 2.4 GHz.
-
-    *   Para minimizar os problemas de interferências, o Bluetooth usa uma
-        técnica chamada de **salto de frequência**.
-
-    *   Salto de frequência: cada máquina fica pulando de frequência após
-        determinado tempo.
-
-*   Baixa complexidade
-*   Baixo consumo de energia
-*   Baixo custo
-
-O Bluetooth pode operar em dois estados:
-* Standby
-* Connection
-
-    *   4 possíveis modos de conexão:
-        * active: transmitindo ou recebendo.
-        * sniff: monitorando as transmissões ao seu redor.
-        * hold: nenhuma comunicação (usado para economizar bateria).
-        * park: fazendo parte da rede, mas não participa do tráfego dos dados. E
-          não pode transmitir ou receber dados.
-
-    *   Quando dois dispositivos bluetooth estabelecem uma conexão, eles criam
-        uma rede pessoal chamada **piconet**.
-
-    *   Piconet:
-
-        *   Pode conter até oito dispositivos diferentes (1 mestre e 7 escravos).
-
-        *   Dispositivos individuais podem pertencer a mais de uma piconet
-            simultaneamente.
-
-        *   O mestre estabele os parâmetros físicos (como será o salto de
-            frequências).
-
-        *   Os escravos devem sincronizar seus clocks com o mestre (os saltos de
-            frequência devem ser efetuados ao mesmo tempo)
-
-        *   O MAC é realizado pelo TDMA (coordenado pelo mestre).
-
-    *   Scatternet
-        
-        *   Uma rede que é um conjunto de piconets.
-
-        *   Pode conter no máximo 10 piconets (80 dispositivos).
-
-        *   Todas as comunicações entre piconets são realizadas através dos
-            mestres.
-
-## xDSL
-## Cable Modem
 
 ## Referências
 
