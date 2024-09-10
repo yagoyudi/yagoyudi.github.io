@@ -1,6 +1,6 @@
 # Kubernetes
 
-Kubernetes é um orquestrador de containers.
+O Kubernetes (k8s) é um orquestrador de containers.
 
 Sumário:
 
@@ -82,11 +82,6 @@ Responsável por garantir a execução do container e gerenciar o seu ciclo de
 vida.
 
 ## Criação do cluster
-
-Principais formas de instalar:
-
-1. kind
-2. kubeadm
 
 ### kind
 
