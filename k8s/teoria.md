@@ -364,8 +364,9 @@ spec:
           - curl 10.244.2.32
 ```
 
-O terminationGracePeriodSeconds é o intervalo para o SIGTERM funciona, senão manda
-o SIGKILL. Se não especificar o termination grace period é de 30s.
+O terminationGracePeriodSeconds é o intervalo para o SIGTERM funcionar. Se
+passar desse intervalo manda um SIGKILL. Se não especificar, o termination
+grace period é de 30s.
 
 O lifecycle são hooks do pod. São ações que você pode injetar quando o pod está
 iniciando ou finalizando.
