@@ -2,27 +2,25 @@
 
 Kubernetes é um orquestrador de containers.
 
-Essa é a minha documentação sobre o que **eu** aprendi sobre Kubernetes.
-
 Sumário:
 
 1.  [Arquitetura do Kubernetes](#arquitetura-do-kubernetes)
-1.  [Criação do cluster](#criação-do-cluster)
+1.  [Criação do cluster](#criação-do-cluster) TODO
 1.	[Namespaces](#namespaces)
 1.  [Pods](#pods)
 1.  [Deployments](#deployments)
-1.  [DaemonSets](#daemonsets)
-1.  [StatefulSets](#statefulsets)
-1.  [Jobs e Cronjobs](#jobs-e-cronjobs)
+1.  [DaemonSets](#daemonsets) TODO
+1.  [StatefulSets](#statefulsets) TODO
+1.  [Jobs e Cronjobs](#jobs-e-cronjobs) TODO
 1.  [Services](#services)
-1.  [Ingress](#ingress)
-1.  [ConfigMap e Secrets](#ingress-e-secrets)
-1.  [Storage](#storage)
-1.  [Autoscaling](#autoscaling)
-1.  [Networking](#networking)
-1.  [RBAC](#rbac)
-1.  [Upgrade](#upgrade)
-1.  [Scheduling](#scheduling)
+1.  [Ingress](#ingress) TODO
+1.  [ConfigMap e Secrets](#ingress-e-secrets) TODO
+1.  [Storage](#storage) TODO
+1.  [Autoscaling](#autoscaling) TODO
+1.  [Networking](#networking) TODO
+1.  [RBAC](#rbac) TODO
+1.  [Upgrade](#upgrade) TODO
+1.  [Scheduling](#scheduling) TODO
 1.  [Troubleshooting](#troubleshooting)
 1.  [Referências](#referências)
 
