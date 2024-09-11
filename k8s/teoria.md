@@ -438,6 +438,90 @@ Normalmente, o Deployment é o jeito de colocar a aplicação no ar mais usado.
 
     Edita o yaml do deploy do nginx e já aplica as mudanças.
 
+*   `k scale deploy nginx --replicas 50`
+
+    Altera o número de réplicas do deploy do nginx para 50.
+
+    O correto é usar o Autoscalling ao invés de trocar o número de réplicas na
+    mão.
+
+### maxSurge e maxUnavailable
+
+maxSurge: o maior número de pods que podem subir acima do número desejado de
+pods.
+
+maxUnavailable: o maior número de pods que podem estar unavailable durante um
+update.
+
+```yaml
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 0
+  replicas: 100
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+```
+
+Para ver mais: `k explain deploy.spec.strategy.rollingUpdate`.
+
+### Request e Limits
+
+limits: define o máximo de recursos computacionais permitido usar.
+
+requests: define o mínimo de recursos computacionais necessário.
+
+`k explain deploy.spec.template.spec.containers.resources`
+
+```yaml
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 0
+  replicas: 100
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512M
+          limits:
+            cpu: 10
+            memory: 8G
+```
+
 ## StatefulSet
 
 ## DaemonSet
@@ -482,6 +566,12 @@ Serve para voltar uma versão de um deploy, por exemplo.
 *   `k rollout undo deploy nginx`
 
     Volta para o antigo deploy do nginx do history.
+
+### k top
+
+*   `k top node`
+    
+    Igual ao comando top do linux.
 
 ## Trobleshooting
 
