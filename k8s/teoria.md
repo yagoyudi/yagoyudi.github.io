@@ -552,7 +552,8 @@ Tem o objetivo de expor o app.
 
 *   `k get po -l k8s-app=kube-dns -n kube-system`
 
-    Pegua somente os pods com a label k8s-app como kube-dns.
+    Seleciona os pods com a label k8s-app como kube-dns dentro do namespace
+    kube-system.
 
 ### k rollout
 
