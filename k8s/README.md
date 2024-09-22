@@ -26,7 +26,7 @@ Sumário:
 
 ## Arquitetura do Kubernetes
 
-![Arquitetura do Kubernetes imagem](components-of-kubernetes.svg)
+![Arquitetura do Kubernetes imagem](static/components-of-kubernetes.svg)
 
 O Kubernetes é composto pelo:
 
