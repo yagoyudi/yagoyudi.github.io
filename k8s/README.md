@@ -591,6 +591,6 @@ O explain pode ser usado em tudo do `k api-resources`.
 
 ## Referências
 
-* https://kubernetes.io/docs/concepts/overview/components/
-
+- <https://kubernetes.io/docs/concepts/overview/components/>
+- <https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/>
 
