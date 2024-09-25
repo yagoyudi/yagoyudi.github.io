@@ -26,6 +26,12 @@ Sumário:
 
 ## Arquitetura do Kubernetes
 
+Leia:
+1.  <https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/>
+2.  <https://kamalmarhubi.com/blog/2015/08/27/what-even-is-a-kubelet/>
+3.  <https://kamalmarhubi.com/blog/2015/09/06/kubernetes-from-the-ground-up-the-api-server/>
+4.  <https://kamalmarhubi.com/blog/2015/11/17/kubernetes-from-the-ground-up-the-scheduler/>
+
 ![Arquitetura do Kubernetes imagem](static/components-of-kubernetes.svg)
 
 O Kubernetes é composto pelo:
@@ -79,9 +85,6 @@ rotas:
 -   /pods
 -   /spec/
 
-Clique [aqui](https://kamalmarhubi.com/blog/2015/08/27/what-even-is-a-kubelet/)
-para mais informações sobre o kubelet.
-
 #### kube-proxy
 
 É um container que atua como proxy de rede.
@@ -92,9 +95,6 @@ Ele que cria o service.
 
 Responsável por garantir a execução do container e gerenciar o seu ciclo de
 vida.
-
-[Uma boa introdução sobre a arquitetura do
-Kubernetes](https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/).
 
 ## Criação do cluster
 
