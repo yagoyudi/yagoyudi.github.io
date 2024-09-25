@@ -47,9 +47,7 @@ Banco de dados do Kubernetes.
 
 #### kube-apiserver
 
-Faz o controle de tudo.
-
-O Kubernetes nada mais é do que uma API.
+Faz o controle de tudo, porque é o único componente que se conecta ao etcd.
 
 #### kube-scheduler
 
