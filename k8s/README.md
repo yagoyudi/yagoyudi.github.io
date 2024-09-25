@@ -66,9 +66,21 @@ O Data plane é composto pelos Nodes, que possuem os seguintes serviços:
 
 #### kubelet
 
-Garante que os containers estão rodando no Pod.
+Garante que os containers estão rodando no node.
 
-Comunica-se com o kube-apiserver.
+O kubelet se comunica com o kube-apiserver.
+
+O kubelet que cria o "Pod". O Pod nada mais é que os containers do manifesto
+junto com um container chamado "pause container" que é responsável pela
+infraestrutura do Pod. Esse container é responsável pela pilha de rede do pod
+(netns) e ele também sobe um servidor HTTP na porta 10255 com as seguintes
+rotas:
+-   /healthz
+-   /pods
+-   /spec/
+
+Clique [aqui](https://kamalmarhubi.com/blog/2015/08/27/what-even-is-a-kubelet/)
+para mais informações sobre o kubelet.
 
 #### kube-proxy
 
@@ -591,6 +603,7 @@ O explain pode ser usado em tudo do `k api-resources`.
 
 ## Referências
 
-- <https://kubernetes.io/docs/concepts/overview/components/>
-- <https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/>
+-   <https://kubernetes.io/docs/concepts/overview/components/>
+-   <https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/>
+-   <https://kamalmarhubi.com/blog/2015/08/27/what-even-is-a-kubelet/>
 
