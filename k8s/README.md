@@ -93,6 +93,9 @@ Ele que cria o service.
 Responsável por garantir a execução do container e gerenciar o seu ciclo de
 vida.
 
+[Uma boa introdução sobre a arquitetura do
+Kubernetes](https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/).
+
 ## Criação do cluster
 
 ### kind
