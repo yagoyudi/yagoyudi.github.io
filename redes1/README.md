@@ -234,7 +234,7 @@ Utilizada quando o canal de comunicação é analógico.
 
 Exemplo: Ondas de rádio para transmissão no ar.
 
-![Exemplo todas as modulações](modulacao.png)
+![Exemplo todas as modulações](./media/modulacao.png)
 
 ### Modulação em amplitude (AM/ASK)
 
@@ -289,7 +289,7 @@ PSK := PM + portadora.
 
 ### Modulação em quadratura de amplitude (QAM)
 
-![Exemplo QAM-8](qam-8.png)
+![Exemplo QAM-8](./media/qam-8.png)
 
 QAM-4 := 4 amplitudes diferentes ou 2 amplitudes e 2 fases.
 * transmite 2 bits de uma vez.
@@ -328,7 +328,7 @@ Polaridade:
 
 ### Return-to-zero (RZ)
 
-![RZ exemplo](rz.png)
+![RZ exemplo](./media/rz.png)
 
 ```
 1: pulso para cima.
@@ -351,7 +351,7 @@ esquentar e romper.
 
 ### Non-return-to-zero (NRZ)
 
-![NRZ exemplo](nrz.png)
+![NRZ exemplo](./media/nrz.png)
 
 ```
 1: pulso para cima.
@@ -371,7 +371,7 @@ O NRZ é ideal para:
 
 ### NRZ Invert on ones (NRZ-I)
 
-![NRZ-I exemplo](nrzi.png)
+![NRZ-I exemplo](./media/nrzi.png)
 
 ```
 1: inverte a linha.
@@ -390,7 +390,7 @@ bits na linha.
 
 ### Manchester
 
-![Manchester exemplo](manchester.png)
+![Manchester exemplo](./media/manchester.png)
 
 ```
 1: para cima no meio do intervalo.
@@ -409,7 +409,7 @@ Uso: Ethernet.
 
 ### Manchester diferencial
 
-![Manchester diferencial exemplo](manchester-diferencial.png)
+![Manchester diferencial exemplo](./media/manchester-diferencial.png)
 
 ```
 sempre tem transição no meio do intervalo.
@@ -428,7 +428,7 @@ Vantagens:
 
 ### Alternate Mark Invertion (AMI)
 
-![Exemplo de AMI](ami.png)
+![Exemplo de AMI](./media/ami.png)
 
 ```
 1: alterna um pulso para cima com um pulso para baixo.
@@ -449,7 +449,7 @@ Uso: telefone fixo.
 
 ### Simplex
 
-![Simplex](simplex.png)
+![Simplex](./media/simplex.png)
 
 Comunicação em sentido único.
 
@@ -460,7 +460,7 @@ Exemplo:
 
 ### Half-duplex (ou Semi-duplex)
 
-![Semi-duplex](semi-duplex.png)
+![Semi-duplex](./media/semi-duplex.png)
 
 Comunicação em ambas as direções, porém nunca ao mesmo tempo.
 
@@ -470,7 +470,7 @@ Exemplo:
 
 ### Duplex (ou Full-duplex)
 
-![Duplex](duplex.png)
+![Duplex](./media/duplex.png)
 
 Comunicação em ambas as direções. Pode ser simultânea.
 
@@ -483,7 +483,7 @@ se isso não for possível - usamos duplexação.
 
 #### TDD (Time Division Duplexing)
 
-![TDD](tdd.png)
+![TDD](./media/tdd.png)
 
 Fatia o tempo do canal em slots.
 
@@ -496,7 +496,7 @@ A transissão ocorre tão rápido que considera-se um duplex.
 
 #### FDD (Frequency Division Duplexing)
 
-![FDD](fdd.png)
+![FDD](./media/fdd.png)
 
 Divide a frequência disponível em duas. Uma faixa de frequência transmite e
 outra recebe.
@@ -523,7 +523,7 @@ Simplex.
 
 ### TDM
 
-![TDM](tdm.png)
+![TDM](./media/tdm.png)
 
 Fatia o tempo do canal entre os usuários e entrega um slot para cada um.
 
@@ -565,7 +565,7 @@ TDM com reserva:
 
 ### FDM
 
-![FDM](fdm.png)
+![FDM](./media/fdm.png)
 
 Fatia o tamanho do canal (a faixa de frequência) em bandas menores (canais
 menores) e entrega um canal pequeno para cada usuário.
@@ -613,7 +613,7 @@ Code Division Multiple Access:
 
 ### OFMD (Multiplexação por Divisão Ortogonal de Frequência)
 
-![OFMD](ofdm.png)
+![OFMD](./media/ofdm.png)
 
 Parecida com FDM, mas os sub-canais são sobrepostos. Isso resulta em um número maior de sub-canais maiores.
 
@@ -624,7 +624,7 @@ Utilizado em todas as redes sem fio.
 
 ### WDM (Multiplexação por Divisão de Comprimento de Onda)
 
-![WDM](wdm.png)
+![WDM](./media/wdm.png)
 
 Similar ao FDM, mas - ao invés de utilizar a frequência como parâmetro para a divisão - utiliza o
 comprimento de onda.
@@ -646,7 +646,7 @@ canal com transmissão bidirecional.
 
 ### TDD + TDM
 
-![TDD + TDM](tdd-tdm.png)
+![TDD + TDM](./media/tdd-tdm.png)
 
 Dois grupos: upload e download. Um slot para cada máquina fazer upload. Um slot
 para cada máquina fazer download.
@@ -655,14 +655,14 @@ Quadro := parte de upload + download.
 
 ### TDD + FDM
 
-![TDD+FDM](tdd-fdm.png)
+![TDD+FDM](./media/tdd-fdm.png)
 
 Dividir a frequência para cada máquina e, dentro de cada frequência, dividir em
 slots de tempo para upload e download.
 
 ### FDD + TDM
 
-![FDD+TDM](fdd-tdm.png)
+![FDD+TDM](./media/fdd-tdm.png)
 
 Duas frequências: uma para upload e outra para download. Um slot de tempo para
 cada máquina.
@@ -671,7 +671,7 @@ Mais utilizado.
 
 ### FDD + FDM
 
-![FDD+FDM](fdd-fdm.png)
+![FDD+FDM](./media/fdd-fdm.png)
 
 Dois frequências: upload e download. Dentro de cada frequência, uma frequência
 para cada máquina.
@@ -761,7 +761,7 @@ tentativas de transmitir esta mensagem.  Depois de `n = 11`, n fica constante.
 
 #### CSMA/CD
 
-![CSMA/CD](csma-cd.png)
+![CSMA/CD](./media/csma-cd.png)
 
 Baseado no CSMA não-persistente.
 
@@ -796,7 +796,7 @@ Volta ao CSMA, problema da colisão volta.
 
 Problema novo: problema do terminal oculto.
 
-![Problema](terminal-oculto.png)
+![Problema](./media/terminal-oculto.png)
 
 Solução: CSMA com Collision Avoidance.
 
@@ -804,7 +804,7 @@ Duas novas mensagens:
 * RTS (Request-To-Send)
 * CTS (Clear-To-Send)
 
-![CSMA/CA](csma-ca.png)
+![CSMA/CA](./media/csma-ca.png)
 
 Pode ocorrer colisão em mensagens RTS e CTS.
 
@@ -814,7 +814,7 @@ Desvantagem: precisa enviar 1 mensagem RTS e 1 CTS pelo menos para cada mensagem
 
 #### Passagem de bastão
 
-![Passagem de bastão](passagem-de-bastao.png)
+![Passagem de bastão](./media/passagem-de-bastao.png)
 
 Como uma corrida de revezamento. O bastão vai passando pela rede. Quem está com
 o bastão pode transmitir. Se tudo funcionar corretamente, não tem colisão.
@@ -955,7 +955,7 @@ Sobrecarga: 1 bit para cada byte + 1 byte.
 
 ##### Checksum
 
-![Exemplo de checksum](checksum.png)
+![Exemplo de checksum](./media/checksum.png)
 
 1. Soma os dados.
 2. Trunca o resultado para 8 bits.
@@ -970,7 +970,7 @@ Sobrecarga: 1 byte.
 
 ##### CRC (Ciclic Redundant Code)
 
-![Exemplo de CRC](crc.png)
+![Exemplo de CRC](./media/crc.png)
 
 Mensagem original + polinômio gerador.
 
