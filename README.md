@@ -1,4 +1,0 @@
--   [k8s](./k8s)
--   [redes1](./redes1)
--   [redes2](./redes2)
--   [design](./design)
