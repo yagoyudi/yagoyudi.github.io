@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redes1 on Yago Yudi</title>
+    <link>//localhost:1313/tags/redes1/</link>
+    <description>Recent content in Redes1 on Yago Yudi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/redes1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conteúdo de redes 1</title>
+      <link>//localhost:1313/post/redes1/</link>
+      <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/post/redes1/</guid>
+      <description>&lt;h2 id=&#34;modelo-de-camadas&#34;&gt;Modelo de Camadas&lt;/h2&gt;&#xA;&lt;p&gt;Modelo OSI:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;+---------------------+&#xA;|      Aplicação      |&#xA;+---------------------+&#xA;|     Apresentação    |&#xA;+---------------------+&#xA;|       Sessão        |&#xA;+---------------------+&#xA;|     Transporte      |&#xA;+---------------------+&#xA;|        Rede         |&#xA;+---------------------+&#xA;|       Enlase        |&#xA;+---------------------+&#xA;|       Física        |&#xA;+---------------------+&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Modelo TCP/IP:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;+---------------------+&#xA;|      Aplicação      | (Aplicação + Apresentação)&#xA;+---------------------+&#xA;|         TCP         | (Sessão + Transporte)&#xA;+---------------------+&#xA;|         IP          |&#xA;+---------------------+&#xA;|       Enlase        |&#xA;+---------------------+&#xA;|       Física        |&#xA;+---------------------+&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Cada mensagem faz todo o caminho de envelopamento e desenvelopamento ao subir e&#xA;descer na pilha.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

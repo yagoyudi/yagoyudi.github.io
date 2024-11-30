@@ -1,56 +1,10 @@
-# Conteúdo de Redes 1
-
-Esse documento é o meu resumo da matéria de Redes 1.
-
-Sumário:
-
-1.  [Modelo de camadas](#modelo-de-camadas)
-1.  [Ondas](#ondas)
-1.  [Modulação](#modulação)
-    1.  [AM/ASK](#modulação-em-amplitude-amask)
-    1.  [FM/FSK](#modulação-em-frequência-fmfsk)
-    1.  [PM/PSK](#modulação-em-fase-pmpsk)
-    1.  [QAM](#modulação-em-quadratura-de-amplitude-qam)
-1.  [Codificação](#codificação)
-    1.  [RZ](#return-to-zero-rz)
-    1.  [NRZ](#non-return-to-zero-nrz)
-    1.  [NRZ-I](#nrz-invert-on-ones-nrz-i)
-    1.  [Manchester](#manchester)
-    1.  [Manchester diferencial](#manchester-diferencial)
-    1.  [AMI](#alternate-mark-invertion-ami)
-1.  [Duplexação](#duplexação)
-    1.  [Simplex](#simplex)
-    1.  [Semi-duplex](#half-duplex-ou-semi-duplex)
-    1.  [Duplex](#duplex-ou-full-duplex)
-        1.  [TDD](#tdd-time-division-duplexing)
-        1.  [FDD](#fdd-frequency-division-duplexing)
-1.  [Multiplexação](#multiplexação)
-    1.  [TDM](#tdm)
-    1.  [FDM](#fdm)
-    1.  [CDM](#cdm-multiplexação-por-divisão-de-código)
-    1.  [OFMD](#ofmd-multiplexação-por-divisão-ortogonal-de-frequência)
-    1.  [WDM](#wdm-multiplexação-por-divisão-de-comprimento-de-onda)
-1.  [Duplexação + Multiplexação](#duplexação--multiplexação)
-1.  [MAC](#mac)
-    1.  [Aloha](#aloha)
-    1.  [Aloha discreto](#aloha-discreto-slotted-aloha)
-    1.  [CSMA](#csma-carrier-sense-multiple-access)
-    1.  [CSMA não persistente](#csma-não-persistente)
-    1.  [CSMA/CD](#csmacd)
-    1.  [CSMA/CA](#csmaca)
-    1.  [Passagem de bastão](#passagem-de-bastão)
-1.  [LLC](#llc)
-    1.  [Enquadramento](#enquadramento)
-    1.  [Sequencialização](#sequencialização)
-    1.  [Controle de fluxo](#controle-de-fluxo)
-        1.  [Para-e-espera](#para-e-espera)
-        1.  [Janela-deslizante](#janela-deslizante)
-    1.  [Detecção de erros](#detecção-de-erros)
-        1.  [Paridade horizontal](#paridade-horizontal)
-        1.  [Paridade vertical](#paridade-vertical)
-        1.  [Paridade longitudinal](#paridade-longitudinal)
-        1.  [Checksum](#checksum)
-        1.  [CRC](#crc-ciclic-redundant-code)
+---
+title: "Conteúdo de redes 1"
+date: "2024-11-30"
+toc: true
+tags:
+- redes1
+---
 
 ## Modelo de Camadas
 
